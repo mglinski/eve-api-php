@@ -2,19 +2,19 @@
 
 namespace Eve;
 
-use Eve\Api\EveKey;
+use Eve\Api\ApiKey;
 
 /**
  * Class Corporation
+ *
  * @package Eve
  */
-class Corporation extends BaseEve
-{
+class Corporation extends BaseEve {
+
 	/**
 	 *
 	 */
-	static function setupPheal()
-	{
+	static function setupPheal() {
 		parent::setupPheal();
 
 		// corporation scope data calls
@@ -26,13 +26,11 @@ class Corporation extends BaseEve
 	/**
 	 * Returns the ISK balance of a corporation's wallets.
 	 *
-	 * @param EveKey $key
-	 *
+	 * @param ApiKey $key
 	 * @link     https://neweden-dev.com/Corp/AccountBalance
 	 * @return bool|object
 	 */
-	static public function AccountBalance(EveKey $key)
-	{
+	static public function AccountBalance(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -43,13 +41,11 @@ class Corporation extends BaseEve
 	/**
 	 * Returns a list of assets owned by a corporation.
 	 *
-	 * @param EveKey $key
-	 *
+	 * @param ApiKey $key
 	 * @link https://neweden-dev.com/Corp/AssetList
 	 * @return bool|object
 	 */
-	static public function AssetList(EveKey $key)
-	{
+	static public function AssetList(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -60,13 +56,11 @@ class Corporation extends BaseEve
 	/**
 	 * Returns the blueprints owned by the corporation. Cached for 24 hours.
 	 *
-	 * @param EveKey $key
-	 *
+	 * @param ApiKey $key
 	 * @link https://neweden-dev.com/Corp/WalletTransactions
 	 * @return bool|object
 	 */
-	static public function Blueprints(EveKey $key)
-	{
+	static public function Blueprints(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -80,13 +74,11 @@ class Corporation extends BaseEve
 	 * has set towards other characters and entities. For standings that others
 	 * have set towards the corp, see the Standings API.
 	 *
-	 * @param EveKey $key
-	 *
+	 * @param ApiKey $key
 	 * @link https://neweden-dev.com/Corp/WalletTransactions
 	 * @return bool|object
 	 */
-	static public function ContactList(EveKey $key)
-	{
+	static public function ContactList(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -97,13 +89,11 @@ class Corporation extends BaseEve
 	/**
 	 * Shows corp container audit log.
 	 *
-	 * @param EveKey $key
-	 *
+	 * @param ApiKey $key
 	 * @link https://neweden-dev.com/Corp/WalletTransactions
 	 * @return bool|object
 	 */
-	static public function ContainerLog(EveKey $key)
-	{
+	static public function ContainerLog(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -115,13 +105,11 @@ class Corporation extends BaseEve
 	 * Lists contracts issued within the last month as well as
 	 * all contracts marked as outstanding or in-progress.
 	 *
-	 * @param EveKey $key
-	 *
+	 * @param ApiKey $key
 	 * @link https://neweden-dev.com/Corp/WalletTransactions
 	 * @return bool|object
 	 */
-	static public function Contracts(EveKey $key)
-	{
+	static public function Contracts(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -133,13 +121,11 @@ class Corporation extends BaseEve
 	 * Lists items that a specified contract contains, use the contractID parameter to specify the contract.
 	 *
 	 * @param        $contractID
-	 * @param EveKey $key
-	 *
+	 * @param ApiKey $key
 	 * @link https://neweden-dev.com/Corp/WalletTransactions
 	 * @return bool|object
 	 */
-	static public function ContractItems($contractID, EveKey $key)
-	{
+	static public function ContractItems($contractID, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -152,13 +138,11 @@ class Corporation extends BaseEve
 	/**
 	 * Lists the latest bids that have been made to any recent auctions.
 	 *
-	 * @param EveKey $key
-	 *
+	 * @param ApiKey $key
 	 * @link https://neweden-dev.com/Corp/WalletTransactions
 	 * @return bool|object
 	 */
-	static public function ContractBids(EveKey $key)
-	{
+	static public function ContractBids(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -172,20 +156,15 @@ class Corporation extends BaseEve
 	 * Returns attributes relating to a specific corporation.
 	 *
 	 * @param int $corporationID
-	 *
 	 * @link https://neweden-dev.com/Corp/WalletTransactions
 	 * @return bool|object
 	 */
-	static public function CorporationSheetPublic($corporationID)
-	{
+	static public function CorporationSheetPublic($corporationID) {
 		// setup classes
 		self::setupPheal();
 
 		// paginate
-		$data = [
-			'corporationID' => $corporationID
-		];
-
+		$data = ['corporationID' => $corporationID];
 
 		$response = self::_apiCall('CorporationSheet', $data, null, 'CorporationSheet');
 		return $response;
@@ -194,13 +173,11 @@ class Corporation extends BaseEve
 	/**
 	 * Returns a list of market transactions for a corporation.
 	 *
-	 * @param EveKey $key
-	 *
+	 * @param ApiKey $key
 	 * @link https://neweden-dev.com/Corp/WalletTransactions
 	 * @return bool|object
 	 */
-	static public function CorporationSheetPrivate(EveKey $key)
-	{
+	static public function CorporationSheetPrivate(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -214,13 +191,11 @@ class Corporation extends BaseEve
 	/**
 	 * Returns a list of Facilities for a corporation.
 	 *
-	 * @param EveKey $key
-	 *
+	 * @param ApiKey $key
 	 * @link https://neweden-dev.com/Corp/WalletTransactions
 	 * @return bool|object
 	 */
-	static public function Facilities(EveKey $key)
-	{
+	static public function Facilities(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -235,13 +210,11 @@ class Corporation extends BaseEve
 	 * Returns a list of Facilities for a corporation.
 	 *
 	 * @param        $characterID
-	 * @param EveKey $key
-	 *
+	 * @param ApiKey $key
 	 * @link https://neweden-dev.com/Corp/WalletTransactions
 	 * @return bool|object
 	 */
-	static public function FacWarStats($characterID, EveKey $key)
-	{
+	static public function FacWarStats($characterID, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -249,8 +222,7 @@ class Corporation extends BaseEve
 		$data = [];
 
 		// implement wallet divisions
-		if($characterID != 0)
-		{
+		if ($characterID != 0) {
 			$data['characterID'] = $characterID;
 		}
 
@@ -262,13 +234,11 @@ class Corporation extends BaseEve
 	 * Returns the corporation jobs (started from a corporation hangar) for a
 	 * corporation that have not finished yet. Cached for 15 minutes.
 	 *
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link https://neweden-dev.com/Char/FacWarStats
 	 * @return bool|object
 	 */
-	static public function IndustryJobs(EveKey $key)
-	{
+	static public function IndustryJobs(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -283,13 +253,11 @@ class Corporation extends BaseEve
 	 * Returns the corporation jobs (started from personal hangar) for a character
 	 * that have not finished yet. Cached for 15 minutes.
 	 *
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link https://neweden-dev.com/Char/FacWarStats
 	 * @return bool|object
 	 */
-	static public function IndustryJobsHistory(EveKey $key)
-	{
+	static public function IndustryJobsHistory(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -306,24 +274,19 @@ class Corporation extends BaseEve
 	 *
 	 * @param int $fromID - Optional; Used for walking the dataset backwards to get more entries
 	 * @param int $rowCount - Optional; Used for specifying the amount of rows to return. Default is 50. Maximum is 2560
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link https://neweden-dev.com/Char/IndustryJobs
 	 * @return bool|object
 	 */
-	static public function KillMails($fromID, $rowCount, EveKey $key)
-	{
+	static public function KillMails($fromID, $rowCount, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		// paginate
-		$data = [
-			'rowCount' => $rowCount
-		];
+		$data = ['rowCount' => $rowCount];
 
 		// implement Walking
-		if($fromID != 0)
-		{
+		if ($fromID != 0) {
 			$data['fromID'] = $fromID;
 		}
 
@@ -336,20 +299,16 @@ class Corporation extends BaseEve
 	 * Coordinates should all be 0 for valid locations located inside of stations.
 	 *
 	 * @param string $ids - Comma separated list of itemIDs
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function Locations($ids, EveKey $key)
-	{
+	static public function Locations($ids, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		//
-		$data = [
-			'ids' => $ids
-		];
+		$data = ['ids' => $ids];
 
 		$response = self::_apiCall('Locations', $data, $key);
 		return $response;
@@ -359,21 +318,18 @@ class Corporation extends BaseEve
 	 * Returns a list of market orders that are either not expired or have expired in the past week (at most).
 	 *
 	 * @param        $orderID - Market order ID to fetch an order that is no longer open.
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function MarketOrders($orderID, EveKey $key)
-	{
+	static public function MarketOrders($orderID, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		//
 		$data = [];
 
-		if($orderID != 0)
-		{
+		if ($orderID != 0) {
 			$data['orderID'] = $orderID;
 		}
 
@@ -384,13 +340,11 @@ class Corporation extends BaseEve
 	/**
 	 * Returns a list of medals created by this corporation.
 	 *
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function Medals(EveKey $key)
-	{
+	static public function Medals(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -404,13 +358,11 @@ class Corporation extends BaseEve
 	/**
 	 * Returns a list of medals issued to members.
 	 *
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function MemberMedals(EveKey $key)
-	{
+	static public function MemberMedals(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -424,13 +376,11 @@ class Corporation extends BaseEve
 	/**
 	 * Returns the security roles of members in a corporation.
 	 *
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function MemberSecurity(EveKey $key)
-	{
+	static public function MemberSecurity(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -445,20 +395,16 @@ class Corporation extends BaseEve
 	 * Returns info about corporation role changes for members and who did it
 	 *
 	 * @param        $characterID
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api ApiKey object used to auth with the Eve Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function MemberSecurityLog($characterID, EveKey $key)
-	{
+	static public function MemberSecurityLog($characterID, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		//
-		$data = [
-			'characterID' => $characterID,
-		];
+		$data = ['characterID' => $characterID,];
 
 		$response = self::_apiCall('MemberSecurityLog', $data, $key);
 		return $response;
@@ -468,20 +414,16 @@ class Corporation extends BaseEve
 	 * For player corps this returns the member list
 	 *
 	 * @param        $extended
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api ApiKey object used to auth with the Eve Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function MemberTracking($extended, EveKey $key)
-	{
+	static public function MemberTracking($extended, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		//
-		$data = [
-			'extended' => (int)$extended,
-		];
+		$data = ['extended' => (int)$extended,];
 
 		$response = self::_apiCall('MemberSecurityLog', $data, $key);
 		return $response;
@@ -491,20 +433,16 @@ class Corporation extends BaseEve
 	 * For player corps this returns the member list
 	 *
 	 * @param        $characterID - Character ID of a char with director or higher access in the corp the outposts belong to.
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function OutpostList($characterID, EveKey $key)
-	{
+	static public function OutpostList($characterID, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		//
-		$data = [
-			'characterID' => (int)$characterID,
-		];
+		$data = ['characterID' => (int)$characterID,];
 
 		$response = self::_apiCall('OutpostList', $data, $key);
 		return $response;
@@ -515,22 +453,17 @@ class Corporation extends BaseEve
 	 * full API key from the a director(or CEO) of the corporation which the outpost belongs to.
 	 *
 	 * @param        $characterID - Character ID of a char with director or higher access in the corp the outposts belong to.
-	 * @param        $itemID- Item ID of the outpost listed in OutpostList API call.
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param        $itemID - Item ID of the outpost listed in OutpostList API call.
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function OutpostServiceDetail($characterID, $itemID, EveKey $key)
-	{
+	static public function OutpostServiceDetail($characterID, $itemID, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		//
-		$data = [
-			'characterID' => (int)$characterID,
-			'itemID' => (int)$itemID,
-		];
+		$data = ['characterID' => (int)$characterID, 'itemID' => (int)$itemID,];
 
 		$response = self::_apiCall('OutpostServiceDetail', $data, $key);
 		return $response;
@@ -541,20 +474,16 @@ class Corporation extends BaseEve
 	 *
 	 * @param        $characterID - Character ID of a char with director? or higher access in the corp you want the
 	 *                              share holders for.
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function Shareholders($characterID, EveKey $key)
-	{
+	static public function Shareholders($characterID, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		//
-		$data = [
-			'characterID' => (int)$characterID,
-		];
+		$data = ['characterID' => (int)$characterID,];
 
 		$response = self::_apiCall('Shareholders', $data, $key);
 		return $response;
@@ -565,20 +494,16 @@ class Corporation extends BaseEve
 	 *
 	 * @param        $characterID - Character ID of a char with director? or higher access in
 	 *                              the corp you want the standings for.
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function Standings($characterID, EveKey $key)
-	{
+	static public function Standings($characterID, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		//
-		$data = [
-			'characterID' => (int)$characterID,
-		];
+		$data = ['characterID' => (int)$characterID,];
 
 		$response = self::_apiCall('Standings', $data, $key);
 		return $response;
@@ -588,20 +513,16 @@ class Corporation extends BaseEve
 	 * Shows the settings and fuel status of a POS.
 	 *
 	 * @param        $itemID - ItemID of the POS as given in the starbase list
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function StarbaseDetail($itemID, EveKey $key)
-	{
+	static public function StarbaseDetail($itemID, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		//
-		$data = [
-			'itemID' => (int)$itemID,
-		];
+		$data = ['itemID' => (int)$itemID,];
 
 		$response = self::_apiCall('StarbaseDetail', $data, $key);
 		return $response;
@@ -610,13 +531,11 @@ class Corporation extends BaseEve
 	/**
 	 * Shows the list and states of POS'es.
 	 *
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function StarbaseList(EveKey $key)
-	{
+	static public function StarbaseList(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -631,20 +550,16 @@ class Corporation extends BaseEve
 	 * Shows the list and states of POS'es.
 	 *
 	 * @param        $characterID - Character ID of a char with director? or higher access in the corp you want the titles for.
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
-	static public function Titles($characterID, EveKey $key)
-	{
+	static public function Titles($characterID, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		//
-		$data = [
-			'characterID' => $characterID,
-		];
+		$data = ['characterID' => $characterID,];
 
 		$response = self::_apiCall('Titles', $data, $key);
 		return $response;
@@ -656,30 +571,24 @@ class Corporation extends BaseEve
 	 * @param int $fromID
 	 * @param int $rowCount
 	 * @param int $accountKey
-	 * @param EveKey $key
-	 *
+	 * @param ApiKey $key
 	 * @link https://neweden-dev.com/Corp/WalletJournal
 	 * @return bool|object
 	 */
-	static public function WalletJournal($fromID, $rowCount, $accountKey, EveKey $key)
-	{
+	static public function WalletJournal($fromID, $rowCount, $accountKey, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		// paginate
-		$data = [
-			'rowCount' => $rowCount
-		];
+		$data = ['rowCount' => $rowCount];
 
 		// implement wallet divisions
-		if($accountKey != 0)
-		{
+		if ($accountKey != 0) {
 			$data['accountKey'] = $accountKey;
 		}
 
 		// implement Walking
-		if($fromID != 0)
-		{
+		if ($fromID != 0) {
 			$data['fromID'] = $fromID;
 		}
 
@@ -693,30 +602,24 @@ class Corporation extends BaseEve
 	 * @param int $fromID
 	 * @param int $rowCount
 	 * @param int $accountKey
-	 * @param EveKey $key
-	 *
+	 * @param ApiKey $key
 	 * @link https://neweden-dev.com/Corp/WalletJournal
 	 * @return bool|object
 	 */
-	static public function WalletTransactions($fromID, $rowCount, $accountKey, EveKey $key)
-	{
+	static public function WalletTransactions($fromID, $rowCount, $accountKey, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		// paginate
-		$data = [
-			'rowCount' => $rowCount
-		];
+		$data = ['rowCount' => $rowCount];
 
 		// implement wallet divisions
-		if($accountKey != 0)
-		{
+		if ($accountKey != 0) {
 			$data['accountKey'] = $accountKey;
 		}
 
 		// implement Walking
-		if($fromID != 0)
-		{
+		if ($fromID != 0) {
 			$data['fromID'] = $fromID;
 		}
 

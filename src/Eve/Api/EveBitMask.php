@@ -93,8 +93,7 @@ abstract class EveBitMask extends EveCallMask
 	   * Note: these functions are protected to prevent outside code
 	   * from falsely setting BITS.
 	   */
-	protected function setScope($scope)
-	{
+	protected function setScope($scope) {
 		$this->scope = $scope;
 	}
 
@@ -102,8 +101,7 @@ abstract class EveBitMask extends EveCallMask
 	   * Note: these functions are protected to prevent outside code
 	   * from falsely setting BITS.
 	   */
-	protected function getScope()
-	{
+	protected function getScope() {
 		return $this->scope;
 	}
 
@@ -111,8 +109,7 @@ abstract class EveBitMask extends EveCallMask
 	   * Note: these functions are protected to prevent outside code
 	   * from falsely setting BITS.
 	   */
-	protected function isFlagSet($flag)
-	{
+	protected function isFlagSet($flag) {
 		return (($this->access_mask & $flag) == $flag);
 	}
 
@@ -120,24 +117,19 @@ abstract class EveBitMask extends EveCallMask
 	   * Note: these functions are protected to prevent outside code
 	   * from falsely setting BITS.
 	   */
-	protected function areFlagsSet()
-	{
+	protected function areFlagsSet() {
 		$numargs = func_num_args();
 		$arg_list = func_get_args();
 
-		for ($i = 0; $i < $numargs; $i++)
-		{
+		for ($i = 0; $i < $numargs; $i++) {
 			$perm = $arg_list[$i];
-			if(is_array($perm))
-			{
+			if (is_array($perm)) {
 				$perm = $perm[0];
 			}
-			if($this->isFlagSet($perm))
-			{
+			if ($this->isFlagSet($perm)) {
 				continue;
 			}
-			else
-			{
+			else {
 				return false;
 			}
 		}

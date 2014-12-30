@@ -2,16 +2,19 @@
 
 namespace Eve;
 
-use Eve\Api\EveKey;
+use Eve\Api\ApiKey;
 
 /**
  * Class Account
+ *
  * @package Eve
  */
-class Account extends BaseEve
-{
-	static protected function setupPheal()
-	{
+class Account extends BaseEve {
+
+	/**
+	 * Ensure that the API calls we make in this class are using the right scope.
+	 */
+	static protected function setupPheal() {
 		parent::setupPheal();
 
 		// account scope data calls
@@ -25,13 +28,11 @@ class Account extends BaseEve
 	 * total play time in minutes, total times logged on and date of account creation.
 	 * In the case of game time code accounts it will also look for available offers of time codes.
 	 *
-	 * @param EveKey $key
-	 *
-	 * @link
+	 * @param ApiKey $key
+	 * @link https://neweden-dev.com/Account/AccountStatus
 	 * @return bool|object
 	 */
-	static public function AccountStatus(EveKey $key)
-	{
+	static public function AccountStatus(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -45,13 +46,11 @@ class Account extends BaseEve
 	/**
 	 * Returns information about the API key and a list of the characters exposed by it.
 	 *
-	 * @param EveKey $key
-	 *
-	 * @link
+	 * @param ApiKey $key
+	 * @link https://neweden-dev.com/Account/APIKeyInfo
 	 * @return bool|object
 	 */
-	static public function APIKeyInfo(EveKey $key)
-	{
+	static public function APIKeyInfo(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
@@ -65,13 +64,11 @@ class Account extends BaseEve
 	/**
 	 * Returns a list of all characters on an account.
 	 *
-	 * @param EveKey $key
-	 *
-	 * @link
+	 * @param ApiKey $key
+	 * @link https://neweden-dev.com/Account/Characters
 	 * @return bool|object
 	 */
-	static public function Characters(EveKey $key)
-	{
+	static public function Characters(ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 

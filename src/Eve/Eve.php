@@ -2,19 +2,19 @@
 
 namespace Eve;
 
-use Eve\Api\EveKey;
+use Eve\Api\ApiKey;
 
 /**
  * Class Eve
+ *
  * @package Eve
  */
-class Eve extends BaseEve
-{
+class Eve extends BaseEve {
+
 	/**
 	 *
 	 */
-	static protected function setupPheal()
-	{
+	static protected function setupPheal() {
 		parent::setupPheal();
 
 		// eve scope data calls
@@ -29,8 +29,7 @@ class Eve extends BaseEve
 	 * @link https://neweden-dev.com/EVE/AllianceList
 	 * @return bool|object
 	 */
-	static public function AllianceList()
-	{
+	static public function AllianceList() {
 		// setup classes
 		self::setupPheal();
 
@@ -47,12 +46,10 @@ class Eve extends BaseEve
 	 * Returns a list of certificates in eve.
 	 *
 	 * @deprecated deprecated since Eve Online Rubicon v1.0
-	 *
 	 * @link https://neweden-dev.com/EVE/CertificateTree
 	 * @return bool|object
 	 */
-	static public function CertificateTree()
-	{
+	static public function CertificateTree() {
 		// setup classes
 		self::setupPheal();
 
@@ -70,18 +67,15 @@ class Eve extends BaseEve
 	 * allianceName, allianceID, factionName, factionID for the given list of characterIDs.
 	 *
 	 * @param string|array $ids
-	 *
 	 * @link https://neweden-dev.com/EVE/CharacterAffiliation
 	 * @return bool|object
 	 */
-	static public function CharacterAffiliation($ids)
-	{
+	static public function CharacterAffiliation($ids) {
 		// setup classes
 		self::setupPheal();
 
 		// allow passing in an array of ids, convert to proper format
-		if(is_array($ids))
-		{
+		if (is_array($ids)) {
 			$ids = implode(',', $ids);
 		}
 
@@ -102,18 +96,15 @@ class Eve extends BaseEve
 	 * stations, solar systems, planets, etc.
 	 *
 	 * @param string|array $names
-	 *
 	 * @link https://neweden-dev.com/EVE/CharacterID
 	 * @return bool|object
 	 */
-	static public function CharacterID($names)
-	{
+	static public function CharacterID($names) {
 		// setup classes
 		self::setupPheal();
 
 		// allow passing in an array of names, convert to proper format
-		if(is_array($names))
-		{
+		if (is_array($names)) {
 			$names = implode(',', $names);
 		}
 
@@ -131,20 +122,16 @@ class Eve extends BaseEve
 	/**
 	 * Return the same data as a show info call on the character would do in the client.
 	 *
-	 * @param int  $characterID - The ID of the character for the requested data
-	 *
+	 * @param int $characterID - The ID of the character for the requested data
 	 * @link https://neweden-dev.com/EVE/CharacterInfo
 	 * @return bool|object
 	 */
-	static public function CharacterInfoKeyless($characterID)
-	{
+	static public function CharacterInfoKeyless($characterID) {
 		// setup classes
 		self::setupPheal();
 
 		// data array
-		$data = array(
-			'characterID' => $characterID
-		);
+		$data = array('characterID' => $characterID);
 
 		// make api call
 		$response = self::_apiCall('CharacterInfo', $data, null, 'CharacterInfoKeyless');
@@ -159,21 +146,17 @@ class Eve extends BaseEve
 	 * With a limited API key it will return the same data as a show info call on the character would do
 	 * in the client and add total skill points as well as the current ship you are in and its name.
 	 *
-	 * @param int  $characterID - The ID of the character for the requested data
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param int $characterID - The ID of the character for the requested data
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link https://neweden-dev.com/EVE/CharacterInfo
 	 * @return bool|object
 	 */
-	static public function CharacterInfoPublic($characterID, EveKey $key)
-	{
+	static public function CharacterInfoPublic($characterID, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		// data array
-		$data = array(
-			'characterID' => $characterID
-		);
+		$data = array('characterID' => $characterID);
 
 		// make api call
 		$response = self::_apiCall('CharacterInfo', $data, $key, 'CharacterInfoPublic');
@@ -189,21 +172,17 @@ class Eve extends BaseEve
 	 * in the client and add total skill points as well as the current ship you are in and its name and
 	 * your account balance and your last known location (cached).
 	 *
-	 * @param int  $characterID - The ID of the character for the requested data
-	 * @param EveKey $key - Api EveKey object used to auth with the Eve Online API
-	 *
+	 * @param int $characterID - The ID of the character for the requested data
+	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
 	 * @link https://neweden-dev.com/EVE/CharacterInfo
 	 * @return bool|object
 	 */
-	static public function CharacterInfoPrivate($characterID, EveKey $key)
-	{
+	static public function CharacterInfoPrivate($characterID, ApiKey $key) {
 		// setup classes
 		self::setupPheal();
 
 		// data array
-		$data = array(
-			'characterID' => $characterID
-		);
+		$data = array('characterID' => $characterID);
 
 		// make api call
 		$response = self::_apiCall('CharacterInfo', $data, $key, 'CharacterInfoPrivate');
@@ -218,18 +197,15 @@ class Eve extends BaseEve
 	 * Returns the name associated with an ownerID.
 	 *
 	 * @param $ids string|array
-	 *
 	 * @link https://neweden-dev.com/EVE/CharacterName
 	 * @return bool|object
 	 */
-	static public function CharacterName($ids)
-	{
+	static public function CharacterName($ids) {
 		// setup classes
 		self::setupPheal();
 
 		// allow passing in an array of ids, convert to proper format
-		if(is_array($ids))
-		{
+		if (is_array($ids)) {
 			$ids = implode(',', $ids);
 		}
 
@@ -250,8 +226,7 @@ class Eve extends BaseEve
 	 * @link https://neweden-dev.com/EVE/ConquerableStationList
 	 * @return bool|object
 	 */
-	static public function ConquerableStationList()
-	{
+	static public function ConquerableStationList() {
 		// setup classes
 		self::setupPheal();
 
@@ -275,8 +250,7 @@ class Eve extends BaseEve
 	 * @link https://neweden-dev.com/EVE/ErrorList
 	 * @return bool|object
 	 */
-	static public function ErrorList()
-	{
+	static public function ErrorList() {
 		// setup classes
 		self::setupPheal();
 
@@ -298,8 +272,7 @@ class Eve extends BaseEve
 	 * @link https://neweden-dev.com/EVE/FacWarStats
 	 * @return bool|object
 	 */
-	static public function FacWarStats()
-	{
+	static public function FacWarStats() {
 		// setup classes
 		self::setupPheal();
 
@@ -318,8 +291,7 @@ class Eve extends BaseEve
 	 * @link https://neweden-dev.com/EVE/FacWarTopStats
 	 * @return bool|object
 	 */
-	static public function FacWarTopStats()
-	{
+	static public function FacWarTopStats() {
 		// setup classes
 		self::setupPheal();
 
@@ -338,8 +310,7 @@ class Eve extends BaseEve
 	 * @link https://neweden-dev.com/EVE/RefTypes
 	 * @return bool|object
 	 */
-	static public function RefTypes()
-	{
+	static public function RefTypes() {
 		// setup classes
 		self::setupPheal();
 
@@ -358,8 +329,7 @@ class Eve extends BaseEve
 	 * @link https://neweden-dev.com/EVE/SkillTree
 	 * @return bool|object
 	 */
-	static public function SkillTree()
-	{
+	static public function SkillTree() {
 		// setup classes
 		self::setupPheal();
 
@@ -376,18 +346,15 @@ class Eve extends BaseEve
 	 * Returns the name associated with a typeID.
 	 *
 	 * @param $ids string|array
-	 *
 	 * @link https://neweden-dev.com/EVE/TypeName
 	 * @return bool|object
 	 */
-	static public function TypeName($ids)
-	{
+	static public function TypeName($ids) {
 		// setup classes
 		self::setupPheal();
 
 		// allow passing in an array of ids, convert to proper format
-		if(is_array($ids))
-		{
+		if (is_array($ids)) {
 			$ids = implode(',', $ids);
 		}
 

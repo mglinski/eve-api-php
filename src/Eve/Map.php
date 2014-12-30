@@ -2,19 +2,17 @@
 
 namespace Eve;
 
-use Eve\Api\EveKey;
-
 /**
  * Class Map
+ *
  * @package Eve
  */
-class Map extends BaseEve
-{
+class Map extends BaseEve {
+
 	/**
 	 *
 	 */
-	static protected function setupPheal()
-	{
+	static protected function setupPheal() {
 		parent::setupPheal();
 
 		// map scope data calls
@@ -31,8 +29,7 @@ class Map extends BaseEve
 	 * @link https://neweden-dev.com/Map/FacWarSystems
 	 * @return bool|object
 	 */
-	static public function FacWarSystems()
-	{
+	static public function FacWarSystems() {
 		// setup classes
 		self::setupPheal();
 
@@ -50,8 +47,7 @@ class Map extends BaseEve
 	 * @link https://neweden-dev.com/Map/Jumps
 	 * @return bool|object
 	 */
-	static public function Jumps()
-	{
+	static public function Jumps() {
 		// setup classes
 		self::setupPheal();
 
@@ -69,8 +65,7 @@ class Map extends BaseEve
 	 * @link https://neweden-dev.com/Map/Kills
 	 * @return bool|object
 	 */
-	static public function Kills()
-	{
+	static public function Kills() {
 		// setup classes
 		self::setupPheal();
 
@@ -87,8 +82,7 @@ class Map extends BaseEve
 	 * @link https://neweden-dev.com/Map/Sovereignty
 	 * @return bool|object
 	 */
-	static public function Sovereignty()
-	{
+	static public function Sovereignty() {
 		// setup classes
 		self::setupPheal();
 

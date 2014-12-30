@@ -4,12 +4,15 @@ namespace Eve;
 
 /**
  * Class Api
+ *
  * @package Eve
  */
-class Api extends BaseEve
-{
-	static protected function setupPheal()
-	{
+class Api extends BaseEve {
+
+	/**
+	 * Ensure that the API calls we make in this class are using the right scope.
+	 */
+	static protected function setupPheal() {
 		parent::setupPheal();
 
 		// api scope data calls
@@ -25,8 +28,7 @@ class Api extends BaseEve
 	 * @link https://neweden-dev.com/API/CallList
 	 * @return bool|object
 	 */
-	static public function CallList()
-	{
+	static public function CallList() {
 		// setup classes
 		self::setupPheal();
 

@@ -4,12 +4,12 @@ namespace Eve;
 
 /**
  * Class Server
+ *
  * @package Eve
  */
-class Server extends BaseEve
-{
-	static protected function setupPheal()
-	{
+class Server extends BaseEve {
+
+	static protected function setupPheal() {
 		parent::setupPheal();
 
 		// server scope data calls
@@ -24,8 +24,7 @@ class Server extends BaseEve
 	 * @link https://neweden-dev.com/Server/ServerStatus
 	 * @return bool|object
 	 */
-	static public function ServerStatus()
-	{
+	static public function ServerStatus() {
 		// setup classes
 		self::setupPheal();
 
