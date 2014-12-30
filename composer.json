@@ -1,0 +1,21 @@
+{
+  "name": "mglinski/eve-api-php",
+  "description": "API Negotiation Layer for The Eve API.",
+  "keywords": [
+    "eve-online", "api", "brave"
+  ],
+  "license": "MIT",
+  "require": {
+    "rmccue/requests": ">=1.0",
+    "3rdpartyeve/phealng": "1.0.0"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "~2.0",
+    "phpunit/phpunit": "4.4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Eve\\": "src/Eve/"
+    }
+  }
+}
