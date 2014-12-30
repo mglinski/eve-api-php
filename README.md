@@ -14,7 +14,7 @@ Please take a look and feel free to contribute back some docs.
     
     // singleton based config object
     Eve\Api\Config::Instance()->user_agent = 'MY SITE NAME (v1.0) [email@domain.com]';
-    Eve\Api\Config::Instance()->log_handler = new Monolog\Handler\StreamHandler('path/to/your.log', Logger::WARNING);
+    Eve\Api\Config::Instance()->log_handler = new Monolog\Handler\StreamHandler('path/to/your.log', Monolog\Logger::WARNING);
     
     // Create an ApiKey Object with the known key details
     $key = new Eve\Api\ApiKey('KEY_ID', 'KEY_vCODE');
