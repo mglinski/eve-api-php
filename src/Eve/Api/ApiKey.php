@@ -50,10 +50,21 @@ class ApiKey extends EveBitMask {
 	 * @var bool
 	 */
 	protected $error = false;
+
 	/**
 	 * @var null
 	 */
 	protected $error_message = null;
+
+	/**
+	 * @var null
+	 */
+	protected $last_request = null;
+
+	/**
+	 * @var array
+	 */
+	protected $_requests = [];
 
 	/**
 	 * @param int $key_id
@@ -241,4 +252,29 @@ class ApiKey extends EveBitMask {
 		return $this->error_message = $error;
 	}
 
-} 
+	/**
+	 * @return mixed
+	 */
+	public function getLastRequest()
+	{
+		return end($this->_requests);
+	}
+
+	/**
+	 * @param $request
+	 * @return mixed
+	 */
+	public function getRequestLog($request)
+	{
+		return $this->_requests = $request;
+	}
+
+	/**
+	 * @param $request
+	 * @return mixed
+	 */
+	public function addRequestToLog($request)
+	{
+		return $this->_requests[] = $request;
+	}
+}

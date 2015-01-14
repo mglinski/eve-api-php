@@ -211,6 +211,10 @@ Class BaseEve {
 			$key->setKeyError(false);
 			$key->setKeyErrorMessage(null);
 
+			// log request info
+			$key->addRequestToLog("https://api.eveonline.com/".self::$scopeType."/".$name.".aspx?".
+				http_build_query(array_merge($args,['keyID' => $key->getKeyID(), 'vCode' => $key->getKeyVCode()])));
+
 			// WOW So Magic
 			$response = $pheal->$name($args);
 			return $response;
