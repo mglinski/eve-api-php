@@ -47,6 +47,15 @@ class ApiKey extends EveBitMask {
 	protected $raw_key_info = null;
 
 	/**
+	 * @var bool
+	 */
+	protected $error = false;
+	/**
+	 * @var null
+	 */
+	protected $error_message = null;
+
+	/**
 	 * @param int $key_id
 	 * @param string $key_vcode
 	 */
@@ -196,6 +205,40 @@ class ApiKey extends EveBitMask {
 	 */
 	public function setKeyExpireDate($expire_date) {
 		$this->expire_date = $expire_date;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getKeyError()
+	{
+		return $this->error;
+	}
+
+	/**
+	 * @param $error
+	 * @return mixed
+	 */
+	public function setKeyError($error)
+	{
+		return $this->error = $error;
+	}
+
+	/**
+	 * @return null
+	 */
+	public function getKeyErrorMessage()
+	{
+		return $this->error_message;
+	}
+
+	/**
+	 * @param $error
+	 * @return mixed
+	 */
+	public function setKeyErrorMessage($error)
+	{
+		return $this->error_message = $error;
 	}
 
 } 

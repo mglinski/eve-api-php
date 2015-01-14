@@ -207,32 +207,54 @@ Class BaseEve {
 
 		// Actually start trying to execute some data calls!
 		try {
+			// reset error state for key
+			$key->setKeyError(false);
+			$key->setKeyErrorMessage(null);
+
 			// WOW So Magic
 			$response = $pheal->$name($args);
 			return $response;
 		}
 		catch (PhealException $e) {
-			self::$logger->addError($e->getMessage());
+			$msg = "PhealException: ".$e->getMessage();
+			$key->setKeyError(true);
+			$key->setKeyErrorMessage($msg);
+			self::$logger->addError($msg);
 			return FALSE;
 		}
 		catch (PhealAPIException $e) {
-			self::$logger->addError($e->getMessage());
+			$msg = "PhealAPIException: ".$e->getMessage();
+			$key->setKeyError(true);
+			$key->setKeyErrorMessage($msg);
+			self::$logger->addError($msg);
 			return FALSE;
 		}
 		catch (PhealAccessException $e) {
-			self::$logger->addError($e->getMessage());
+			$msg = "PhealAccessException: ".$e->getMessage();
+			$key->setKeyError(true);
+			$key->setKeyErrorMessage($msg);
+			self::$logger->addError($msg);
 			return FALSE;
 		}
 		catch (PhealConnectionException $e) {
-			self::$logger->addError($e->getMessage());
+			$msg = "PhealConnectionException: ".$e->getMessage();
+			$key->setKeyError(true);
+			$key->setKeyErrorMessage($msg);
+			self::$logger->addError($msg);
 			return FALSE;
 		}
 		catch (PhealHTTPException $e) {
-			self::$logger->addError($e->getMessage());
+			$msg = "PhealHTTPException: ".$e->getMessage();
+			$key->setKeyError(true);
+			$key->setKeyErrorMessage($msg);
+			self::$logger->addError($msg);
 			return FALSE;
 		}
 		catch (Exception $e) {
-			self::$logger->addError($e->getMessage());
+			$msg = "Exception: ".$e->getMessage();
+			$key->setKeyError(true);
+			$key->setKeyErrorMessage($msg);
+			self::$logger->addError($msg);
 			return FALSE;
 		}
 	}
