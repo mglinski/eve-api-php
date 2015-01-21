@@ -3,13 +3,14 @@
 namespace Eve;
 
 use Eve\Api\ApiKey;
+use Eve\Api\EveApi;
 
 /**
  * Class Character
  *
- * @package Eve
+ * @package EveApi
  */
-class Character extends BaseEve {
+class Character extends EveApi {
 
 	/**
 	 * Ensure that the API calls we make in this class are using the right scope.
@@ -27,7 +28,7 @@ class Character extends BaseEve {
 	 * Returns the ISK balance of a character.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/AccountBalance
 	 * @return bool|object
 	 */
@@ -53,7 +54,7 @@ class Character extends BaseEve {
 	 * Returns a list of assets owned by a character.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/AssetList
 	 * @return bool|object
 	 */
@@ -90,7 +91,7 @@ class Character extends BaseEve {
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
 	 * @param string $eventIDs - Comma separated string of event IDs
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/CalendarEventAttendees
 	 * @return bool|object
 	 */
@@ -108,7 +109,7 @@ class Character extends BaseEve {
 	 * Returns attributes relating to a specific character.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/CharacterSheet
 	 * @return bool|object
 	 */
@@ -127,7 +128,7 @@ class Character extends BaseEve {
 	 * Also includes that character's corporation and/or alliance contacts.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/ContactList
 	 * @return bool|object
 	 */
@@ -146,7 +147,7 @@ class Character extends BaseEve {
 	 * Lists the notifications received about having been added to someone's contact list.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/ContactNotifications
 	 * @return bool|object
 	 */
@@ -166,7 +167,7 @@ class Character extends BaseEve {
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
 	 * @param int $contractID - Optional; contract ID to fetch a particular contract.
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/Contracts
 	 * @return bool|object
 	 */
@@ -190,7 +191,7 @@ class Character extends BaseEve {
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
 	 * @param int $contractID - contract ID to fetch a particular contract.
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/ContractItems
 	 * @return bool|object
 	 */
@@ -209,7 +210,7 @@ class Character extends BaseEve {
 	 * Lists the latest bids that have been made to any recent auctions.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/ContractBids
 	 * @return bool|object
 	 */
@@ -232,7 +233,7 @@ class Character extends BaseEve {
 	 * in the last week, and total. Otherwise returns an error code.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/FacWarStats
 	 * @return bool|object
 	 */
@@ -252,7 +253,7 @@ class Character extends BaseEve {
 	 * that have not finished yet. Cached for 15 minutes.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/FacWarStats
 	 * @return bool|object
 	 */
@@ -272,7 +273,7 @@ class Character extends BaseEve {
 	 * that have not finished yet. Cached for 15 minutes.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/FacWarStats
 	 * @return bool|object
 	 */
@@ -294,7 +295,7 @@ class Character extends BaseEve {
 	 * @param int $characterID - The ID of the character for the requested data
 	 * @param int $fromID - Optional; Used for walking the dataset backwards to get more entries
 	 * @param int $rowCount - Optional; Used for specifying the amount of rows to return. Default is 50. Maximum is 2560
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/IndustryJobs
 	 * @return bool|object
 	 */
@@ -320,7 +321,7 @@ class Character extends BaseEve {
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
 	 * @param string $ids - Comma separated list of itemIDs
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -345,7 +346,7 @@ class Character extends BaseEve {
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
 	 * @param string $ids - comma separated list of messageIDs from self::MailMessages()
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/MailBodies
 	 * @return bool|object
 	 */
@@ -364,7 +365,7 @@ class Character extends BaseEve {
 	 * Returns an XML document listing all mailing lists the character is currently a member of.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/MailingLists
 	 * @return bool|object
 	 */
@@ -386,7 +387,7 @@ class Character extends BaseEve {
 	 * Subsequent requests return only the new items received since the last request.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/MarketOrders
 	 * @return bool|object
 	 */
@@ -409,7 +410,7 @@ class Character extends BaseEve {
 	 *
 	 * @param int $characterID - ID of character whose orders you want to access.
 	 * @param int $orderID - Optional; market order ID to fetch an order that is no longer open.
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/MailMessages
 	 * @return bool|object
 	 */
@@ -433,7 +434,7 @@ class Character extends BaseEve {
 	 * Returns a list of medals the character has.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/Medals
 	 * @return bool|object
 	 */
@@ -453,7 +454,7 @@ class Character extends BaseEve {
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
 	 * @param int $ids - comma separated list of notificationIDs obtained via the self::Notifications() API call.
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/Notifications
 	 * @return bool|object
 	 */
@@ -472,7 +473,7 @@ class Character extends BaseEve {
 	 * Returns the message headers for notifications.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/NotificationTexts
 	 * @return bool|object
 	 */
@@ -492,7 +493,7 @@ class Character extends BaseEve {
 	 *  ** This method's data only updates on ingame view. **
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/PlanetaryColonies
 	 * @return bool|object
 	 */
@@ -513,7 +514,7 @@ class Character extends BaseEve {
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
 	 * @param int $planetID - The ID of the planet being queried
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/PlanetaryPins
 	 * @return bool|object
 	 */
@@ -534,7 +535,7 @@ class Character extends BaseEve {
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
 	 * @param int $planetID - The ID of the planet being queried
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/PlanetaryRoutes
 	 * @return bool|object
 	 */
@@ -555,7 +556,7 @@ class Character extends BaseEve {
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
 	 * @param int $planetID - The ID of the planet being queried
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/PlanetaryLinks
 	 * @return bool|object
 	 */
@@ -574,7 +575,7 @@ class Character extends BaseEve {
 	 * Returns information about agents character is doing research with.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/Research
 	 * @return bool|object
 	 */
@@ -593,7 +594,7 @@ class Character extends BaseEve {
 	 * Returns the skills the character is currently training.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/SkillInTraining
 	 * @return bool|object
 	 */
@@ -612,7 +613,7 @@ class Character extends BaseEve {
 	 * Returns the skill queue of the character.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/SkillQueue
 	 * @return bool|object
 	 */
@@ -631,7 +632,7 @@ class Character extends BaseEve {
 	 * Returns the standings towards a character from agents, NPC corporations and factions.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/Standings
 	 * @return bool|object
 	 */
@@ -650,7 +651,7 @@ class Character extends BaseEve {
 	 * Returns a list of all upcoming calendar events for a given character.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/UpcomingCalendarEvents
 	 * @return bool|object
 	 */
@@ -671,7 +672,7 @@ class Character extends BaseEve {
 	 * @param int $characterID - The ID of the character for the requested data
 	 * @param int $fromID - Optional; Used for walking the dataset backwards to get more entries
 	 * @param int $rowCount - Optional; Used for specifying the amount of rows to return. Default is 50. Maximum is 2560
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/WalletJournal
 	 * @return bool|object
 	 */
@@ -697,7 +698,7 @@ class Character extends BaseEve {
 	 * @param int $characterID - The ID of the character for the requested data
 	 * @param int $fromID - Optional; Used for walking the dataset backwards to get more entries
 	 * @param int $rowCount - Optional; Used for specifying the amount of rows to return. Default is 50. Maximum is 2560
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/WalletTransactions
 	 * @return bool|object
 	 */

@@ -12,7 +12,7 @@ use Eve\Account;
 /**
  * Class ApiKey
  *
- * @package Eve\Api
+ * @package EveApi\EveApi
  */
 class ApiKey extends EveBitMask {
 

@@ -1,9 +1,9 @@
 <?php
-namespace Eve;
+namespace Eve\Api;
 
 // Imports
-use Monolog\Logger;
-use Monolog\Handler\ErrorLogHandler;
+use \Monolog\Logger;
+use \Monolog\Handler\ErrorLogHandler;
 
 use \Pheal\Pheal;
 use \Pheal\Core\Config as PhealConfig;
@@ -16,113 +16,12 @@ use \Pheal\Exceptions\ConnectionException as PhealConnectionException;
 use \Pheal\Exceptions\HTTPException as PhealHTTPException;
 use \Pheal\Exceptions\PhealException;
 
-use Eve\Api\ApiKey;
-use Eve\Api\Config;
-
 /**
- * Class BaseEve
+ * Class EveApi
  *
- * @package Eve
+ * @package EveApi
  */
-Class BaseEve {
-
-	// Various API data scopes
-	const EVE_API_DATA_SCOPE_ACCOUNT = 'account';
-	const EVE_API_DATA_SCOPE_CHARACTER = 'char';
-	const EVE_API_DATA_SCOPE_CORPORATION = 'corp';
-	const EVE_API_DATA_SCOPE_EVE = 'eve';
-	const EVE_API_DATA_SCOPE_MAP = 'map';
-	const EVE_API_DATA_SCOPE_SERVER = 'server';
-	const EVE_API_DATA_SCOPE_API = 'api';
-
-	/**
-	 * @var string
-	 */
-	protected static $scopeType = null;
-
-	/**
-	 * @var null
-	 */
-	protected static $logger = null;
-
-	/**
-	 * @var string
-	 */
-	protected static $clientInstances = array();
-
-	/**
-	 * Setter for callType static variable
-	 * Various api call dir prefixes.
-	 * Defined here:
-	 *
-	 * @link http://wiki.eve-id.net/APIv2_Page_Index
-	 * @param $type string
-	 */
-	static protected function setScopeType($type) {
-		$type = trim(strtolower($type));
-		switch ($type) {
-			case self::EVE_API_DATA_SCOPE_ACCOUNT:
-				self::$scopeType = self::EVE_API_DATA_SCOPE_ACCOUNT;
-				break;
-
-			case self::EVE_API_DATA_SCOPE_API:
-				self::$scopeType = self::EVE_API_DATA_SCOPE_API;
-				break;
-
-			case self::EVE_API_DATA_SCOPE_CHARACTER:
-				self::$scopeType = self::EVE_API_DATA_SCOPE_CHARACTER;
-				break;
-
-			case self::EVE_API_DATA_SCOPE_CORPORATION:
-				self::$scopeType = self::EVE_API_DATA_SCOPE_CORPORATION;
-				break;
-
-			case self::EVE_API_DATA_SCOPE_MAP:
-				self::$scopeType = self::EVE_API_DATA_SCOPE_MAP;
-				break;
-
-			case self::EVE_API_DATA_SCOPE_SERVER:
-				self::$scopeType = self::EVE_API_DATA_SCOPE_SERVER;
-				break;
-
-			case self::EVE_API_DATA_SCOPE_EVE:
-				self::$scopeType = self::EVE_API_DATA_SCOPE_EVE;
-				break;
-		}
-	}
-
-	/**
-	 * @param \ApiKey $key
-	 * @return bool
-	 */
-	protected function isCorpApiKey(\ApiKey $key) {
-		if ($key->type->id == \ApiKeyType::corporationKeyType) {
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @param $keyID
-	 * @param $keyVCode
-	 * @param $scopeType
-	 * @return bool
-	 */
-	protected static function getInstanceHash($keyID, $keyVCode, $scopeType) {
-		return sha1($keyID . $keyVCode . $scopeType);
-	}
-
-	/**
-	 * @param \ApiKey $key
-	 * @return bool
-	 */
-	protected function isCharApiKey(\ApiKey $key) {
-		if ($key->type->id == \ApiKeyType::characterKeyType) {
-			return true;
-		}
-
-		return false;
-	}
+Class EveApi extends BaseApi {
 
 	/**
 	 *
@@ -146,11 +45,10 @@ Class BaseEve {
 	 * @param                      $name
 	 * @param array $args
 	 * @param \Eve\Api\ApiKey $key
-	 * @param null | string $mask_override
-	 * @return object | bool
+	 * @param null|string $mask_override
+	 * @return object|bool
 	 */
 	static protected function _apiCall($name, $args = array(), ApiKey $key = null, $mask_override = null) {
-		//self::setupPheal();
 
 		if ($key == null) {
 			$pheal = new Pheal();
@@ -170,7 +68,7 @@ Class BaseEve {
 				// use default bitmask for a character based key for character scoped data
 				$mask_list = ApiKey::$masks_Character[$mask];
 
-				// Eve data scope has some weird permissions we account for here
+				// EveApi data scope has some weird permissions we account for here
 				if (self::$scopeType == self::EVE_API_DATA_SCOPE_EVE) {
 					$mask_list = ApiKey::$masks_Eve[$mask];
 				}

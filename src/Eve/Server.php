@@ -2,12 +2,14 @@
 
 namespace Eve;
 
+use Eve\Api\EveApi;
+
 /**
  * Class Server
  *
- * @package Eve
+ * @package EveApi
  */
-class Server extends BaseEve {
+class Server extends EveApi {
 
 	static protected function setupPheal() {
 		parent::setupPheal();

@@ -3,13 +3,14 @@
 namespace Eve;
 
 use Eve\Api\ApiKey;
+use Eve\Api\EveApi;
 
 /**
- * Class Eve
+ * Class EveApi
  *
- * @package Eve
+ * @package EveApi
  */
-class Eve extends BaseEve {
+class Eve extends EveApi {
 
 	/**
 	 *
@@ -45,7 +46,7 @@ class Eve extends BaseEve {
 	/**
 	 * Returns a list of certificates in eve.
 	 *
-	 * @deprecated deprecated since Eve Online Rubicon v1.0
+	 * @deprecated deprecated since EveApi Online Rubicon v1.0
 	 * @link https://neweden-dev.com/EVE/CertificateTree
 	 * @return bool|object
 	 */
@@ -147,7 +148,7 @@ class Eve extends BaseEve {
 	 * in the client and add total skill points as well as the current ship you are in and its name.
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/EVE/CharacterInfo
 	 * @return bool|object
 	 */
@@ -173,7 +174,7 @@ class Eve extends BaseEve {
 	 * your account balance and your last known location (cached).
 	 *
 	 * @param int $characterID - The ID of the character for the requested data
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/EVE/CharacterInfo
 	 * @return bool|object
 	 */
@@ -221,7 +222,7 @@ class Eve extends BaseEve {
 	// ------------------------------------------
 
 	/**
-	 * Get a list of all conquerable stations in Eve Online.
+	 * Get a list of all conquerable stations in EveApi Online.
 	 *
 	 * @link https://neweden-dev.com/EVE/ConquerableStationList
 	 * @return bool|object

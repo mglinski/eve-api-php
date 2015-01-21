@@ -8,7 +8,7 @@ use Monolog\Handler\ErrorLogHandler;
 /**
  * EveApi Config Singleton
  *
- * @package Eve
+ * @package EveApi
  */
 final class Config  {
 

@@ -45,7 +45,7 @@ abstract class EveBitMask extends EveCallMask
 		'PlanetaryRoutes' => self::Character_AssetList,
 		'PlanetaryLinks' => self::Character_AssetList,
 
-		// New in cirus
+		// New in Crius
 		'IndustryJobsHistory' => self::Character_IndustryJobs,
 
 		// Aliases

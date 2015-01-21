@@ -2,12 +2,14 @@
 
 namespace Eve;
 
+use Eve\Api\EveApi;
+
 /**
  * Class Map
  *
- * @package Eve
+ * @package EveApi
  */
-class Map extends BaseEve {
+class Map extends EveApi {
 
 	/**
 	 *

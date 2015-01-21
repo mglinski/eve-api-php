@@ -3,13 +3,14 @@
 namespace Eve;
 
 use Eve\Api\ApiKey;
+use Eve\Api\EveApi;
 
 /**
  * Class Corporation
  *
- * @package Eve
+ * @package EveApi
  */
-class Corporation extends BaseEve {
+class Corporation extends EveApi {
 
 	/**
 	 *
@@ -234,7 +235,7 @@ class Corporation extends BaseEve {
 	 * Returns the corporation jobs (started from a corporation hangar) for a
 	 * corporation that have not finished yet. Cached for 15 minutes.
 	 *
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/FacWarStats
 	 * @return bool|object
 	 */
@@ -253,7 +254,7 @@ class Corporation extends BaseEve {
 	 * Returns the corporation jobs (started from personal hangar) for a character
 	 * that have not finished yet. Cached for 15 minutes.
 	 *
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/FacWarStats
 	 * @return bool|object
 	 */
@@ -274,7 +275,7 @@ class Corporation extends BaseEve {
 	 *
 	 * @param int $fromID - Optional; Used for walking the dataset backwards to get more entries
 	 * @param int $rowCount - Optional; Used for specifying the amount of rows to return. Default is 50. Maximum is 2560
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/IndustryJobs
 	 * @return bool|object
 	 */
@@ -299,7 +300,7 @@ class Corporation extends BaseEve {
 	 * Coordinates should all be 0 for valid locations located inside of stations.
 	 *
 	 * @param string $ids - Comma separated list of itemIDs
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -318,7 +319,7 @@ class Corporation extends BaseEve {
 	 * Returns a list of market orders that are either not expired or have expired in the past week (at most).
 	 *
 	 * @param        $orderID - Market order ID to fetch an order that is no longer open.
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -340,7 +341,7 @@ class Corporation extends BaseEve {
 	/**
 	 * Returns a list of medals created by this corporation.
 	 *
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -358,7 +359,7 @@ class Corporation extends BaseEve {
 	/**
 	 * Returns a list of medals issued to members.
 	 *
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -376,7 +377,7 @@ class Corporation extends BaseEve {
 	/**
 	 * Returns the security roles of members in a corporation.
 	 *
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -395,7 +396,7 @@ class Corporation extends BaseEve {
 	 * Returns info about corporation role changes for members and who did it
 	 *
 	 * @param        $characterID
-	 * @param ApiKey $key - Api ApiKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi ApiKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -414,7 +415,7 @@ class Corporation extends BaseEve {
 	 * For player corps this returns the member list
 	 *
 	 * @param        $extended
-	 * @param ApiKey $key - Api ApiKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi ApiKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -433,7 +434,7 @@ class Corporation extends BaseEve {
 	 * For player corps this returns the member list
 	 *
 	 * @param        $characterID - Character ID of a char with director or higher access in the corp the outposts belong to.
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -454,7 +455,7 @@ class Corporation extends BaseEve {
 	 *
 	 * @param        $characterID - Character ID of a char with director or higher access in the corp the outposts belong to.
 	 * @param        $itemID - Item ID of the outpost listed in OutpostList API call.
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -474,7 +475,7 @@ class Corporation extends BaseEve {
 	 *
 	 * @param        $characterID - Character ID of a char with director? or higher access in the corp you want the
 	 *                              share holders for.
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -494,7 +495,7 @@ class Corporation extends BaseEve {
 	 *
 	 * @param        $characterID - Character ID of a char with director? or higher access in
 	 *                              the corp you want the standings for.
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -513,7 +514,7 @@ class Corporation extends BaseEve {
 	 * Shows the settings and fuel status of a POS.
 	 *
 	 * @param        $itemID - ItemID of the POS as given in the starbase list
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -531,7 +532,7 @@ class Corporation extends BaseEve {
 	/**
 	 * Shows the list and states of POS'es.
 	 *
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */
@@ -550,7 +551,7 @@ class Corporation extends BaseEve {
 	 * Shows the list and states of POS'es.
 	 *
 	 * @param        $characterID - Character ID of a char with director? or higher access in the corp you want the titles for.
-	 * @param ApiKey $key - Api EveKey object used to auth with the Eve Online API
+	 * @param ApiKey $key - EveApi EveKey object used to auth with the EveApi Online API
 	 * @link     https://neweden-dev.com/Char/Locations
 	 * @return bool|object
 	 */

@@ -3,13 +3,14 @@
 namespace Eve;
 
 use Eve\Api\ApiKey;
+use Eve\Api\EveApi;
 
 /**
  * Class Account
  *
- * @package Eve
+ * @package EveApi
  */
-class Account extends BaseEve {
+class Account extends EveApi {
 
 	/**
 	 * Ensure that the API calls we make in this class are using the right scope.
