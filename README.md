@@ -47,12 +47,12 @@ This is a example of the API system at work, including configuration options and
     use Eve\Character as CharacterApi;
     
     use Monolog\Logger;
-    use Monolog\Handler\StreamHandler;
+    use Monolog\Handler\StreamHandler as LogStreamHandler;
     
     // EveApi Config Object
     $config = EveApiConfig::Instance();
     $config->user_agent = 'MY SITE NAME (v1.0) [email@domain.com]';
-    $config->log_handler = new Monolog\Handler\StreamHandler('path/to/your.log', Monolog\Logger::WARNING);
+    $config->log_handler = new LogStreamHandler('path/to/your.log', Logger::WARNING);
     
     // Create an ApiKey Object with api key info
     $key = new EveApiKey('KEY_ID', 'KEY_vCODE');
