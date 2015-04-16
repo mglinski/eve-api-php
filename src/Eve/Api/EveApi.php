@@ -121,45 +121,46 @@ Class EveApi extends BaseApi {
 		}
 		catch (PhealException $e) {
 			$msg = "PhealException: ".$e->getMessage();
-			$key->setKeyError(true);
-			$key->setKeyErrorMessage($msg);
+			self::passErrorToKey($key, $msg);
 			self::$logger->addError($msg);
 			return FALSE;
 		}
 		catch (PhealAPIException $e) {
 			$msg = "PhealAPIException: ".$e->getMessage();
-			$key->setKeyError(true);
-			$key->setKeyErrorMessage($msg);
+			self::passErrorToKey($key, $msg);
 			self::$logger->addError($msg);
 			return FALSE;
 		}
 		catch (PhealAccessException $e) {
 			$msg = "PhealAccessException: ".$e->getMessage();
-			$key->setKeyError(true);
-			$key->setKeyErrorMessage($msg);
+			self::passErrorToKey($key, $msg);
 			self::$logger->addError($msg);
 			return FALSE;
 		}
 		catch (PhealConnectionException $e) {
 			$msg = "PhealConnectionException: ".$e->getMessage();
-			$key->setKeyError(true);
-			$key->setKeyErrorMessage($msg);
+			self::passErrorToKey($key, $msg);
 			self::$logger->addError($msg);
 			return FALSE;
 		}
 		catch (PhealHTTPException $e) {
 			$msg = "PhealHTTPException: ".$e->getMessage();
-			$key->setKeyError(true);
-			$key->setKeyErrorMessage($msg);
+			self::passErrorToKey($key, $msg);
 			self::$logger->addError($msg);
 			return FALSE;
 		}
 		catch (Exception $e) {
 			$msg = "Exception: ".$e->getMessage();
-			$key->setKeyError(true);
-			$key->setKeyErrorMessage($msg);
+			self::passErrorToKey($key, $msg);
 			self::$logger->addError($msg);
 			return FALSE;
+		}
+	}
+
+	private static function passErrorToKey($key, $msg) {
+		if ($key !== null) {
+			$key->setKeyError(true);
+			$key->setKeyErrorMessage($msg);
 		}
 	}
 }
