@@ -6,9 +6,9 @@
   ],
   "license": "MIT",
   "require": {
-    "rmccue/requests": ">=1.0",
-    "3rdpartyeve/phealng": "1.0.0",
-    "monolog/monolog": "~1.12.0"
+    "rmccue/requests": ">=1.6",
+    "3rdpartyeve/phealng": "2.3.4",
+    "monolog/monolog": "~1.18.1"
   },
   "require-dev": {
     "phpspec/phpspec": "~2.0",
